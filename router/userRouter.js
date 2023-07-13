@@ -33,7 +33,7 @@ const verifyMiddleWare = async(req,resp,next)=>{
         if(userRegistered){
             const verify = await bcrypt.compare(password,userRegistered.password);
             if(verify){
-                 const token = jwt.sign({_id:userRegistered._id},process.env.SECRET_KEY,{expiresIn:"1d"})
+                 const token = jwt.sign({_id:userRegistered._id},"Rinkesh",{expiresIn:"1d"})
                  resp.status(201).send({msg:"user login successfully",token})
             }
             else next()

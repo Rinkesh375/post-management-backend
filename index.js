@@ -9,7 +9,7 @@ app.use(express.json());
 
 const connection=async ()=>{ 
     try{
-        await mongoose.connect(process.env.MONGO_URI)
+        await mongoose.connect(`mongodb+srv://rinkeshujjwal16:rinkesh@clustor0.arwclpw.mongodb.net/todo?retryWrites=true&w=majority`)
         console.log("connected")
     }
     catch(err){
@@ -24,8 +24,8 @@ app.use("/post",postRouter)
 
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(7000,()=>{
     connection()
-    console.log(process.env.PORT)
+ 
 })
 

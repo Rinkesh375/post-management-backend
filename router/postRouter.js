@@ -8,7 +8,7 @@ const authMiddleWare = (req, resp, next) => {
     try {
         const token = req.headers["authorization"]?.split(" ")[1];
         if (token) {
-            const details = jwt.verify(token, process.env.SECRET_KEY);
+            const details = jwt.verify(token, "Rinkesh");
             if (details) {
                 req._id = details._id;
                 next()
