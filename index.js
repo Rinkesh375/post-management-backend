@@ -2,20 +2,30 @@ const mongoose = require("mongoose")
 const express = require("express");
 const userRouter = require("./router/userRouter");
 const postRouter = require("./router/postRouter")
-const app = express();
 require("dotenv").config();
+const app = express();
 app.use(express.json());
 /*Hello */ 
+
+const connection=async ()=>{ 
+    try{
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log("connected")
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
 
 app.use("/user",userRouter)
 app.use("/post",postRouter)
 
-app.listen(7000,async()=>{
-    try {
-        await mongoose.connect(process.env.MONGO_URI)
-    } catch (error) {
-        console.log(error)
-    }
-});
 
+
+
+app.listen(process.env.PORT,()=>{
+    connection()
+    console.log(process.env.PORT)
+})
 

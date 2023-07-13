@@ -2,6 +2,7 @@ const Post = require("../models/postModel");
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+require('dotenv').config()
 
 const authMiddleWare = (req, resp, next) => {
     try {
