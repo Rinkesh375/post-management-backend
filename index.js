@@ -10,11 +10,11 @@ app.use(express.json());
 app.use("/user",userRouter)
 app.use("/post",postRouter)
 
-app.listen(7000,()=>{
+app.listen(7000,async()=>{
     try {
-        mongoose.connect("mongodb+srv://rinkeshujjwal16:rinkesh@clustor0.arwclpw.mongodb.net/todo?retryWrites=true&w=majority")
+        await mongoose.connect(process.env.MONGO_URI)
     } catch (error) {
-        
+        console.log(error)
     }
 });
 
