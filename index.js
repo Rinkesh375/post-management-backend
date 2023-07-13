@@ -5,7 +5,7 @@ const postRouter = require("./router/postRouter")
 const app = express();
 require("dotenv").config();
 app.use(express.json());
-
+/*Hello */ 
 
 app.use("/user",userRouter)
 app.use("/post",postRouter)
