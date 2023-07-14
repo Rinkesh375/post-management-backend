@@ -9,7 +9,7 @@ app.use(express.json());
 
 const connection=async ()=>{ 
     try{
-        await mongoose.connect(`mongodb+srv://rinkeshujjwal16:rinkesh@clustor0.arwclpw.mongodb.net/todo?retryWrites=true&w=majority`)
+        await mongoose.connect(process.env.MONGO_URI)
         console.log("connected")
     }
     catch(err){
