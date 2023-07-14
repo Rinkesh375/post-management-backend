@@ -5,7 +5,7 @@ const postRouter = require("./router/postRouter")
 require("dotenv").config();
 const app = express();
 app.use(express.json());
-/*Hello */ 
+
 
 const connection=async ()=>{ 
     try{
