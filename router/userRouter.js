@@ -9,10 +9,10 @@ require('dotenv').config()
 const hashPass = async(req,resp,next)=>{
     try {
         const {email,password} = req.body;
-        console.log({email})
+     
         const emailpresent = await Post.findOne({email});
             if(emailpresent){
-                console.log(emailpresent,"hello wordl")
+              
                 resp.status(400).send({error:"This email already exists"});
             }
             else {
