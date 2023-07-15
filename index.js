@@ -13,13 +13,9 @@ app.use("/user",userRouter)
 app.use("/post",postRouter)
 
 const connection=async ()=>{ 
-    try{
+    
         await mongoose.connect(process.env.MONGO_URI)
-        console.log("connected")
-    }
-    catch(err){
-        console.log(err)
-    }
+ 
 }
 
 

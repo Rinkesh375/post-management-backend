@@ -1,6 +1,6 @@
-const Post = require("../models/postModel")
 const express = require("express");
 const router = express.Router();
+const Post = require("../models/postModel")
 const jwt = require("jsonwebtoken");
 require('dotenv').config()
 
@@ -25,7 +25,7 @@ const authMiddleWare = (req, resp, next) => {
 router.get("/", async (req, resp) => {
     try {
         const post = await Post.find();
-        resp.status(200).send(post)
+        resp.send(post)
     } catch (error) {
         resp.status(500).send({ error })
     }
